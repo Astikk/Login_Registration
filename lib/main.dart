@@ -32,65 +32,120 @@ class _LoginPageState extends State<LoginPage> {
                 color: Colors.blue[200],
               ),
 
-              Container(
+              SingleChildScrollView(
+                child: Container(
 
-                width: double.infinity,
-                padding: EdgeInsets.all(20),
+                  width: double.infinity,
+                  padding: EdgeInsets.all(20),
 
-                child: Column(
+                  child: Column(
 
-                  children: [
+                    children: [
 
-                    Text('Login',
-                      style: TextStyle(
-                        fontSize: 35),
+                      Text('Login',
+                        style: TextStyle(
+                          fontSize: 35),
+                      ),
+
+                      SizedBox(
+                        height: 30,
+                      ),
+
+
+                  ClipRRect(
+
+                    borderRadius: BorderRadius.circular(80),
+                    child: Image.asset(
+                      'images/login.png',height: 150,
                     ),
-
-                ClipRRect(
-
-                  borderRadius: BorderRadius.circular(80),
-                  child: Image.asset(
-                    'images/login.png',height: 150,
                   ),
-                ),
 
-                    // For text Validation
-                    TextFormField(
-                      //what we wrote in to input field
-                      validator: (value){
-                        print('${value}');
-                        if(value!.length !=10){
-                          return 'Number is not correct';
-                        }
-                        else{
-                          return null;
-                        }
+                      SizedBox(
+                        height: 50,
+                      ),
+
+                      // For text Validation
+                      TextFormField(
+                        //what we wrote in to input field
+                        validator: (value){
+                          print('${value}');
+                          if(value!.length !=10){
+                            return 'Number is not correct';
+                          }
+                          else{
+                            return null;
+                          }
+                        },
+                        decoration: InputDecoration(
+                          hintText: 'Number',
+                          fillColor: Colors.white,
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        keyboardType: TextInputType.number,
+                      ),
+
+                      SizedBox(
+                        height: 30,
+                      ),
+
+                      // Overflow Won't happen we used ->> Singlechildscrollview
+                      TextFormField(
+                        //what we wrote in to input field
+                        validator: (value){
+                          print('${value}');
+                          if(value!.length !=10){
+                            return 'Number is not correct';
+                          }
+                          else{
+                            return null;
+                          }
+                        },
+                        decoration: InputDecoration(
+                          hintText: 'Number',
+                          fillColor: Colors.white,
+                          filled: true,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                        ),
+                        keyboardType: TextInputType.number,
+                      ),
+
+                      SizedBox(
+                        height: 30,
+                      ),
+
+                      ElevatedButton(
+                          onPressed: (){
+                              if(formKey.currentState!.validate()){
+                                print('Hurreee');
+                              }
+                              else{
+                                print('Something is Wrong..');
+                              }
                       },
-                      decoration: InputDecoration(
-                        hintText: 'Number',
-                        fillColor: Colors.white,
-                        filled: true,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
+                          child: Text('Submit')
+                      ),
+
+                      //Click Event for any widgets
+                      GestureDetector(
+                        onTap: (){
+                          print('Click on sign up...');
+                        },
+                        child: Text('Sign Up ?',
+                          style: TextStyle(
+                              fontSize: 35),
                         ),
                       ),
-                      keyboardType: TextInputType.number,
-                    ),
 
-                    ElevatedButton(
-                        onPressed: (){
-                            if(formKey.currentState!.validate()){
-                              print('Hurreee');
-                            }
-                            else{
-                              print('Something is Wrong..');
-                            }
-                    },
-                        child: Text('Submit')
-                    )
-                  ],
+
+                    ],
+                  ),
+
                 ),
-
               )
             ],
           ),
