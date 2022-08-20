@@ -22,10 +22,9 @@ class _LoginPageState extends State<LoginPage> {
         body: Stack(
           children: [
             Container(
-              color: Colors.blue[200],
+              color: Colors.blue[300],
             ),
             Container(
-
               padding: EdgeInsets.all(20),
               alignment: Alignment.center,
               child: Column(
@@ -33,7 +32,12 @@ class _LoginPageState extends State<LoginPage> {
                   Text('Login',style: TextStyle(
                       fontSize: 35),
                   ),
-                  Image.asset('images/login.png',height: 120,),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(80),
+                child: Image.asset(
+                  'images/login.png',height: 150,
+                ),
+              )
                 ],
               ),
 
