@@ -1,7 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:login_regis/signUp.dart';
+
 
 void main(){
-  runApp(LoginPage());
+  runApp(MyApp());
+}
+
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: LoginPage(),
+    );
+  }
 }
 
 
@@ -13,7 +27,7 @@ class LoginPage extends StatefulWidget {
   State<LoginPage> createState() => _LoginPageState();
 }
 
-
+// main code widget goes here
 class _LoginPageState extends State<LoginPage> {
 
   final formKey=GlobalKey<FormState>();
@@ -53,7 +67,6 @@ class _LoginPageState extends State<LoginPage> {
 
 
                   ClipRRect(
-
                     borderRadius: BorderRadius.circular(80),
                     child: Image.asset(
                       'images/login.png',height: 150,
@@ -133,7 +146,10 @@ class _LoginPageState extends State<LoginPage> {
                       //Click Event for any widgets
                       GestureDetector(
                         onTap: (){
-                          print('Click on sign up...');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const SignUp()),
+                          );
                         },
                         child: Text('Sign Up ?',
                           style: TextStyle(
