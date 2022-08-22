@@ -13,11 +13,15 @@ class SignUp extends StatefulWidget {
 
 // Main to write..
 class _SignUpState extends State<SignUp> {
+
+  final unique =GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return  MaterialApp(
       home: Scaffold(
         body: Form(
+          key: unique,
             child: Container(
               height: double.infinity,
               color: Colors.blue[200],
@@ -43,7 +47,7 @@ class _SignUpState extends State<SignUp> {
                    validator: (val){
                      if(val!.length<3)
                        {
-                         print('Too short');
+                         return 'Too short';
                        }
                      else {
                        return null;
@@ -107,11 +111,21 @@ class _SignUpState extends State<SignUp> {
                    ),
                  ),
 
-                 GestureDetector(
-                   onTap: (){
+                 SizedBox(
+                   height: 50,
+                 ),
 
-                   },
-                   child: Text('Submit'),
+
+                 ElevatedButton(onPressed: (){
+                   if(unique.currentState!.validate()){
+                     print('All Done');
+                   }
+                   else{
+                     print('Something is wrong...');
+                   }
+                     },
+                     child:
+                     Text('Submit')
                  )
 
 
