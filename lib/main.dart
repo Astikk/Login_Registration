@@ -48,7 +48,6 @@ class _LoginPageState extends State<LoginPage> {
 
               SingleChildScrollView(
                 child: Container(
-
                   width: double.infinity,
                   padding: EdgeInsets.all(20),
 
@@ -117,14 +116,14 @@ class _LoginPageState extends State<LoginPage> {
                           }
                         },
                         decoration: InputDecoration(
-                          hintText: 'Number',
+                          hintText: 'Email',
                           fillColor: Colors.white,
                           filled: true,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(20),
                           ),
                         ),
-                        keyboardType: TextInputType.number,
+                        keyboardType: TextInputType.emailAddress,
                       ),
 
                       SizedBox(
